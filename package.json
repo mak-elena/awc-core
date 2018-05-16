@@ -24,7 +24,7 @@
   "devDependencies": {
     "documentation": "^5.3.2",
     "gulp": "^3.9.1",
-    "gulp-documentation": "^3.1.0",
+    "gulp-documentation": "^3.2.1",
     "gulp-header-license": "^1.0.9",
     "gulp-rename": "^1.2.2",
     "gulp-systemjs-builder": "^0.15.0",

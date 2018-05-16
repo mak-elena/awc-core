@@ -24,9 +24,31 @@
   </style>
 
   <context-style>
-    @context (5 < foobar <= 15), (55 <= foobar < 70) {
+    @context (lightLevel <= 15) {
       body {
-        background-color: black; color: white; 
+      background-color: black;
+      color: white;
+      }
+      .code .rule {
+      color: mediumpurple;
+      }
+      .code .feat {
+      color: lightskyblue;
+      }
+      .code .value {
+      color: darkseagreen;
+      }
+      .code .stringval {
+      color: lightgray;
+      }
+      .code .selector {
+      color: #ffd966;
+      }
+    }
+    @context (15 < lightLevel < 55) {
+      body {
+        background-color: grey;
+        color: white;
       }
       .code .rule {
         color: mediumpurple;
@@ -44,11 +66,32 @@
         color: #ffd966;
       }
     }
+    @context (55 <= lightLevel < 70) {
+    body {
+    background-color: white;
+    color: black;
+    }
+    .code .rule {
+    color: mediumpurple;
+    }
+    .code .feat {
+    color: lightskyblue;
+    }
+    .code .value {
+    color: darkseagreen;
+    }
+    .code .stringval {
+    color: lightgray;
+    }
+    .code .selector {
+    color: #ffd966;
+    }
+    }
   </context-style>
 
   <script>
     let profilestore = new awc.ProfileStore(true);
-    profilestore.changeProfile({foobar: 0});
+    profilestore.changeProfile({lightLevel: 0});
 
     document.addEventListener('DOMContentLoaded', function() {
       let inputElm = document.querySelector("#in");
@@ -56,7 +99,7 @@
       inputElm.addEventListener('change', function(e){
         e.stopPropagation();
         outputElm.value = `= ${inputElm.value}`;
-        profilestore.changeProfile({foobar: inputElm.value});
+        profilestore.changeProfile({lightLevel: inputElm.value});
       });
     });
   </script>
@@ -70,14 +113,14 @@
   </p>
   <section>
     <h2>Context property value</h2>
-    <label for="in">foobar</label>
+    <label for="in">lightLevel</label>
     <output id="out">= 0</output>
     <input type="range" id="in" value="0">
   </section>
   <section>
     <h2>Context style</h2>
     <pre class="code">
-<span class="rule">@context</span> (<span class="value">5</span> &lt; <span class="feat">foobar</span> &lt;= <span class="value">15</span>), (<span class="value">55</span> &lt;= <span class="feat">foobar</span> &lt; <span class="value">70</span>) {
+<span class="rule">@context</span> (<span class="value">5</span> &lt; <span class="feat">lightLevel</span> &lt;= <span class="value">15</span>), (<span class="value">55</span> &lt;= <span class="feat">lightLevel</span> &lt; <span class="value">70</span>) {
   <span class="selector">body</span> {
     <span class="feat">background-color</span>: <span class="stringval">black</span>;
     <span class="feat">color</span>: <span class="stringval">white</span>;
